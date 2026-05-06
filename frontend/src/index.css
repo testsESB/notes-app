@@ -1,0 +1,231 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Light theme (default) ──────────────────────────── */
+:root {
+  color-scheme: light only;
+  --canvas:     #ffffff;
+  --surface-s:  #f7f7f5;
+  --surface-c:  #eeebe8;
+  --ink:        #1a1818;
+  --charcoal:   #2e2b2b;
+  --body:       #3f3c3c;
+  --mute:       #706c6c;
+  --stone:      #8a8686;
+  --ash:        #a8a4a4;
+  --hairline:   rgba(15, 0, 0, 0.09);
+  --hairline-s: #9a9696;
+  --graph-bg:   #f7f7f5;
+  --graph-node: #1a1818;
+  --graph-edge: rgba(26, 24, 24, 0.35);
+  --graph-mute: rgba(26, 24, 24, 0.15);
+  --font: 'JetBrains Mono', 'Berkeley Mono', 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+/* ── Dark theme ─────────────────────────────────────── */
+[data-theme="dark"] {
+  color-scheme: dark only;
+  --canvas:     #0a0a0a;
+  --surface-s:  #111111;
+  --surface-c:  #1a1a1a;
+  --ink:        #eeebe8;
+  --charcoal:   #d4d0cc;
+  --body:       #b0aba8;
+  --mute:       #7a7676;
+  --stone:      #5e5a5a;
+  --ash:        #464242;
+  --hairline:   rgba(240, 230, 220, 0.08);
+  --hairline-s: #3a3636;
+  --graph-bg:   #060606;
+  --graph-node: #eeebe8;
+  --graph-edge: rgba(238, 235, 232, 0.35);
+  --graph-mute: rgba(238, 235, 232, 0.12);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 13px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+::-webkit-scrollbar { width: 3px; height: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--hairline-s); opacity: 0.5; }
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.toast-enter { animation: toastIn 0.15s ease forwards; }
+
+/* ── MDEditor ───────────────────────────────────────── */
+.w-md-editor {
+  background: var(--canvas) !important;
+  border: none !important;
+  box-shadow: none !important;
+  height: 100% !important;
+  font-family: var(--font) !important;
+  color: var(--ink) !important;
+}
+.w-md-editor-toolbar {
+  background: var(--surface-s) !important;
+  border-bottom: 1px solid var(--hairline) !important;
+  padding: 4px 12px !important;
+}
+.w-md-editor-toolbar li > button {
+  color: var(--mute) !important;
+  border-radius: 4px !important;
+  font-family: var(--font) !important;
+}
+.w-md-editor-toolbar li > button:hover {
+  color: var(--ink) !important;
+  background: var(--surface-c) !important;
+}
+.w-md-editor-toolbar-divider { background: var(--hairline) !important; }
+.w-md-editor-content,
+.w-md-editor-area { background: var(--canvas) !important; }
+.w-md-editor-text-input,
+.w-md-editor-text {
+  background: var(--canvas) !important;
+  color: var(--ink) !important;
+  -webkit-text-fill-color: var(--ink) !important;
+  caret-color: var(--ink) !important;
+  opacity: 1 !important;
+  font-family: var(--font) !important;
+  font-size: 13px !important;
+  line-height: 1.75 !important;
+}
+.wmde-markdown {
+  background: var(--canvas) !important;
+  color: var(--body) !important;
+  font-family: var(--font) !important;
+  font-size: 13px !important;
+  line-height: 1.75 !important;
+}
+.wmde-markdown h1, .wmde-markdown h2, .wmde-markdown h3 {
+  color: var(--ink) !important;
+  border-bottom: 1px solid var(--hairline) !important;
+  font-weight: 700 !important;
+}
+.wmde-markdown a         { color: var(--ink) !important; text-decoration: underline !important; }
+.wmde-markdown strong    { color: var(--ink) !important; font-weight: 700 !important; }
+.wmde-markdown em        { color: var(--body) !important; }
+.wmde-markdown code {
+  background: var(--surface-c) !important;
+  color: var(--ink) !important;
+  border-radius: 3px !important;
+  font-family: var(--font) !important;
+  font-size: 12px !important;
+  padding: 1px 5px !important;
+}
+.wmde-markdown pre {
+  background: var(--surface-c) !important;
+  border: 1px solid var(--hairline) !important;
+  border-radius: 4px !important;
+}
+.wmde-markdown pre code { background: transparent !important; padding: 0 !important; }
+.wmde-markdown blockquote {
+  border-left: 2px solid var(--hairline-s) !important;
+  color: var(--mute) !important;
+}
+.wmde-markdown table td, .wmde-markdown table th {
+  border-color: var(--hairline) !important;
+  padding: 5px 10px !important;
+}
+.wmde-markdown table th {
+  background: var(--surface-s) !important;
+  color: var(--mute) !important;
+}
+.w-md-editor-preview { background: var(--canvas) !important; padding: 14px 20px !important; }
+
+/* Dark mode: override MDEditor's own dark styles to match our tokens */
+[data-theme="dark"] .wmde-markdown-var {
+  --color-canvas-default: var(--canvas) !important;
+}
+
+/* ── Mobile ─────────────────────────────────────────── */
+@media (max-width: 767px) {
+  /* Prevent iOS auto-zoom on input focus */
+  input, textarea, .w-md-editor-text-input, .w-md-editor-text {
+    font-size: 16px !important;
+  }
+
+  /* Fix text visibility: iOS can set -webkit-text-fill-color independently of color */
+  .w-md-editor-text-input {
+    -webkit-text-fill-color: var(--ink) !important;
+    color: var(--ink) !important;
+    background: var(--canvas) !important;
+    opacity: 1 !important;
+  }
+  .w-md-editor-text {
+    color: var(--ink) !important;
+    background: var(--canvas) !important;
+  }
+
+  /* Hide MDEditor toolbar on mobile (no room, use markdown syntax directly) */
+  .w-md-editor-toolbar {
+    display: none !important;
+  }
+
+  /* Fill remaining editor area with canvas color */
+  .w-md-editor,
+  .w-md-editor-content,
+  .w-md-editor-area {
+    background: var(--canvas) !important;
+  }
+
+  /* Comfortable line height and padding */
+  .w-md-editor-text-input, .w-md-editor-text {
+    line-height: 1.65 !important;
+    padding: 14px !important;
+  }
+
+  /* Scrolling momentum on iOS */
+  .w-md-editor-content {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ── iOS : forcer les couleurs light quand le système est en dark mode ── */
+/* iOS peut surcharger les couleurs avec ses teintes système grises même
+   quand l'app est explicitement en mode clair. Ces règles forcent nos
+   valeurs sur tous les éléments concernés. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="dark"]) {
+    color-scheme: light only;
+    background-color: #ffffff;
+  }
+  :root:not([data-theme="dark"]) html,
+  :root:not([data-theme="dark"]) body,
+  :root:not([data-theme="dark"]) #root {
+    background-color: #ffffff !important;
+    color: #1a1818 !important;
+  }
+  :root:not([data-theme="dark"]) input,
+  :root:not([data-theme="dark"]) textarea,
+  :root:not([data-theme="dark"]) select {
+    background-color: #ffffff !important;
+    color: #1a1818 !important;
+    -webkit-text-fill-color: #1a1818 !important;
+    border-color: rgba(15,0,0,0.09) !important;
+  }
+  :root:not([data-theme="dark"]) .w-md-editor,
+  :root:not([data-theme="dark"]) .w-md-editor-content,
+  :root:not([data-theme="dark"]) .w-md-editor-area,
+  :root:not([data-theme="dark"]) .w-md-editor-text,
+  :root:not([data-theme="dark"]) .w-md-editor-text-input,
+  :root:not([data-theme="dark"]) .wmde-markdown {
+    background-color: #ffffff !important;
+    color: #3f3c3c !important;
+    -webkit-text-fill-color: #1a1818 !important;
+  }
+}

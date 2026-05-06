@@ -1,0 +1,13 @@
+{
+  "name": "notes-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:backend":  "cd backend  && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build":        "cd frontend && npm run build",
+    "start":        "cd backend  && NODE_ENV=production node src/server.js",
+    "install:all":  "cd backend && npm install && cd ../frontend && npm install",
+    "serve":        "npm run build && npm start"
+  }
+}
