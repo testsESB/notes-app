@@ -77,7 +77,7 @@ export default function Sidebar({ notes, selectedId, refreshKey, onSelect, onCre
             onMouseEnter={e => e.currentTarget.style.opacity = '0.6'}
             onMouseLeave={e => e.currentTarget.style.opacity = '1'}
           >
-            NotAPP
+            notAPP.
           </button>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <span style={{ fontSize: 10, color: 'var(--stone)', fontFamily: 'var(--font)' }}>

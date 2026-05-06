@@ -190,7 +190,7 @@ export default function App() {
       if (mobilePanel === 'tags') return 'tags';
       if (mobilePanel === 'trash') return 'corbeille';
       if (mobilePanel === 'agenda') return 'agenda';
-      return 'NotAPP';
+      return 'notAPP.';
     };
 
     const handleBack = () => {

@@ -31,19 +31,19 @@ export default function Home({ notes, onCreate, onDaily, onSwitchToGraph, onSele
       {/* Wordmark */}
       <div style={{ textAlign: 'center', marginBottom: hasNotes ? 28 : 36 }}>
         <div style={{
-          fontSize: isMobile ? 36 : 48,
+          fontSize: isMobile ? 44 : 64,
           fontWeight: 700, fontFamily: 'var(--font)',
           color: 'var(--ink)', letterSpacing: '-0.03em',
-          lineHeight: 1, marginBottom: 14,
+          lineHeight: 1, marginBottom: 16,
         }}>
-          NotAPP
+          notAPP.
         </div>
         <div style={{
           fontSize: 11, color: 'var(--stone)',
-          letterSpacing: '0.1em', fontFamily: 'var(--font)',
-          lineHeight: 1.6,
+          letterSpacing: '0.02em', fontFamily: 'var(--font)',
+          lineHeight: 1.6, fontStyle: 'italic',
         }}>
-          notes interconnectées · pensées liées
+          not a note app, note that it's more than not.
         </div>
       </div>
 
