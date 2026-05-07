@@ -9,7 +9,7 @@ const btnReset = {
   transition: 'all 0.1s',
 };
 
-export default function Home({ notes, onCreate, onDaily, onSwitchToGraph, onSelectNote, isMobile }) {
+export default function Home({ notes, onCreate, onDaily, onSwitchToGraph, onSelectNote, isMobile, theme }) {
   const [connections, setConnections] = useState(0);
 
   useEffect(() => {
@@ -30,14 +30,18 @@ export default function Home({ notes, onCreate, onDaily, onSwitchToGraph, onSele
 
       {/* Wordmark */}
       <div style={{ textAlign: 'center', marginBottom: hasNotes ? 28 : 36 }}>
-        <div style={{
-          fontSize: isMobile ? 44 : 64,
-          fontWeight: 700, fontFamily: 'var(--font)',
-          color: 'var(--ink)', letterSpacing: '-0.03em',
-          lineHeight: 1, marginBottom: 16,
-        }}>
-          notAPP.
-        </div>
+        <img
+          src="/wordmark.png"
+          alt="notAPP."
+          style={{
+            height: isMobile ? 48 : 72,
+            width: 'auto',
+            display: 'block',
+            margin: '0 auto 16px',
+            filter: theme === 'light' ? 'invert(1)' : 'none',
+            transition: 'filter 0.18s ease',
+          }}
+        />
         <div style={{
           fontSize: 11, color: 'var(--stone)',
           letterSpacing: '0.02em', fontFamily: 'var(--font)',

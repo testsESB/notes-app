@@ -254,6 +254,7 @@ export default function App() {
               onDaily={handleDaily}
               onSwitchToGraph={switchToGraph}
               onSelectNote={handleSelectNote}
+              theme={theme}
               isMobile
             />
           )}
@@ -385,7 +386,7 @@ export default function App() {
           {view === 'editor' ? (
             selectedNote
               ? <Editor note={selectedNote} onSave={handleSave} onDelete={handleDelete} onToast={toast} theme={theme} onSelectNote={handleSelectNote} />
-              : <Home notes={notes} onCreate={handleCreate} onDaily={handleDaily} onSwitchToGraph={switchToGraph} onSelectNote={handleSelectNote} />
+              : <Home notes={notes} onCreate={handleCreate} onDaily={handleDaily} onSwitchToGraph={switchToGraph} onSelectNote={handleSelectNote} theme={theme} />
           ) : view === 'graph' ? (
             <Graph key={graphKey} theme={theme} onSelectNode={(id) => { setSelectedId(id); setView('editor'); }} />
           ) : view === 'search' ? (
