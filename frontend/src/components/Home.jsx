@@ -30,18 +30,28 @@ export default function Home({ notes, onCreate, onDaily, onSwitchToGraph, onSele
 
       {/* Wordmark */}
       <div style={{ textAlign: 'center', marginBottom: hasNotes ? 28 : 36 }}>
-        <img
-          src="/wordmark.png"
-          alt="notAPP."
-          style={{
-            height: isMobile ? 48 : 72,
-            width: 'auto',
-            display: 'block',
-            margin: '0 auto 16px',
-            filter: theme === 'light' ? 'invert(1)' : 'none',
-            transition: 'filter 0.18s ease',
-          }}
-        />
+        <div style={{
+          display: 'inline-flex', alignItems: 'center', gap: 6,
+          marginBottom: 16,
+        }}>
+          <span style={{
+            fontSize: isMobile ? 44 : 64,
+            fontWeight: 700, fontFamily: 'var(--font)',
+            color: 'var(--ink)', letterSpacing: '-0.03em',
+            lineHeight: 1,
+          }}>
+            notAPP.
+          </span>
+          <span style={{
+            display: 'inline-block',
+            width: isMobile ? 14 : 20,
+            height: isMobile ? 28 : 42,
+            background: 'var(--stone)',
+            borderRadius: 2,
+            animation: 'caretBlink 1.1s step-start infinite',
+            flexShrink: 0,
+          }} />
+        </div>
         <div style={{
           fontSize: 11, color: 'var(--stone)',
           letterSpacing: '0.02em', fontFamily: 'var(--font)',
