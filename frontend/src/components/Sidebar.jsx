@@ -76,19 +76,18 @@ export default function Sidebar({ notes, selectedId, refreshKey, onSelect, onCre
             onMouseEnter={e => e.currentTarget.style.opacity = '0.6'}
             onMouseLeave={e => e.currentTarget.style.opacity = '1'}
           >
-            <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-              {/* edges */}
-              <line x1="2.5" y1="3"   x2="10"  y2="3"   stroke="#5bbfb5" strokeWidth="1.2" strokeLinecap="round" />
-              <line x1="10"  y1="3"   x2="15"  y2="10"  stroke="#c89a3e" strokeWidth="1.2" strokeLinecap="round" />
-              <line x1="2.5" y1="3"   x2="2.5" y2="18"  stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.2" strokeLinecap="round" />
-              <line x1="2.5" y1="18"  x2="9.5" y2="14"  stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.2" strokeLinecap="round" />
-              <line x1="10"  y1="3"   x2="9.5" y2="14"  stroke="currentColor" strokeOpacity="0.25" strokeWidth="1.2" strokeLinecap="round" />
+            <svg width="18" height="22" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              {/* n : jambe gauche → haut → arche → jambe droite */}
+              <line x1="2"  y1="20" x2="2"  y2="3"  stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.2" strokeLinecap="round" />
+              <line x1="2"  y1="3"  x2="10" y2="3"  stroke="#5bbfb5"      strokeWidth="1.2" strokeLinecap="round" />
+              <line x1="10" y1="3"  x2="14" y2="11" stroke="#c89a3e"      strokeWidth="1.2" strokeLinecap="round" />
+              <line x1="14" y1="11" x2="14" y2="20" stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.2" strokeLinecap="round" />
               {/* nodes */}
-              <circle cx="2.5" cy="3"  r="2"   fill="currentColor" />
-              <circle cx="10"  cy="3"  r="2"   fill="currentColor" />
-              <circle cx="15"  cy="10" r="1.5" fill="currentColor" />
-              <circle cx="2.5" cy="18" r="2"   fill="currentColor" />
-              <circle cx="9.5" cy="14" r="1.5" fill="currentColor" />
+              <circle cx="2"  cy="20" r="2"   fill="currentColor" />
+              <circle cx="2"  cy="3"  r="2"   fill="currentColor" />
+              <circle cx="10" cy="3"  r="2"   fill="currentColor" />
+              <circle cx="14" cy="11" r="1.5" fill="currentColor" />
+              <circle cx="14" cy="20" r="1.5" fill="currentColor" />
             </svg>
             <span style={{
               fontFamily: 'var(--font)', fontSize: 11, fontWeight: 700,
