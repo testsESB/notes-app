@@ -70,14 +70,32 @@ export default function Sidebar({ notes, selectedId, refreshKey, onSelect, onCre
             onClick={onHome}
             style={{
               background: 'none', border: 'none', cursor: 'pointer', padding: 0,
-              fontFamily: 'var(--font)', fontSize: 11, fontWeight: 700,
-              color: 'var(--ink)', letterSpacing: '0.04em',
+              display: 'flex', alignItems: 'center', gap: 7,
               transition: 'opacity 0.1s',
             }}
             onMouseEnter={e => e.currentTarget.style.opacity = '0.6'}
             onMouseLeave={e => e.currentTarget.style.opacity = '1'}
           >
-            notAPP.
+            <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              {/* edges */}
+              <line x1="2.5" y1="3"   x2="10"  y2="3"   stroke="#5bbfb5" strokeWidth="1.2" strokeLinecap="round" />
+              <line x1="10"  y1="3"   x2="15"  y2="10"  stroke="#c89a3e" strokeWidth="1.2" strokeLinecap="round" />
+              <line x1="2.5" y1="3"   x2="2.5" y2="18"  stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.2" strokeLinecap="round" />
+              <line x1="2.5" y1="18"  x2="9.5" y2="14"  stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.2" strokeLinecap="round" />
+              <line x1="10"  y1="3"   x2="9.5" y2="14"  stroke="currentColor" strokeOpacity="0.25" strokeWidth="1.2" strokeLinecap="round" />
+              {/* nodes */}
+              <circle cx="2.5" cy="3"  r="2"   fill="currentColor" />
+              <circle cx="10"  cy="3"  r="2"   fill="currentColor" />
+              <circle cx="15"  cy="10" r="1.5" fill="currentColor" />
+              <circle cx="2.5" cy="18" r="2"   fill="currentColor" />
+              <circle cx="9.5" cy="14" r="1.5" fill="currentColor" />
+            </svg>
+            <span style={{
+              fontFamily: 'var(--font)', fontSize: 11, fontWeight: 700,
+              color: 'var(--ink)', letterSpacing: '0.04em',
+            }}>
+              notAPP.
+            </span>
           </button>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <span style={{ fontSize: 10, color: 'var(--stone)', fontFamily: 'var(--font)' }}>
